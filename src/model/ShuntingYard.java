@@ -12,11 +12,11 @@ public class ShuntingYard {
 		ArrayList<String> operators = new ArrayList<String>(Arrays.asList("+", "-", "*", "/", "%", "^"));
 		
 		for(String e : expression.split("\\s")) {
-//			Checks if the token is a number
+			// Checks if the token is a number
 			if(!operators.contains(e) && !(e.charAt(0) == '(') && !(e.charAt(0) == ')')) {
 				output += e + " ";
 			}
-//			Checks if the token is an operator
+			// Checks if the token is an operator
 			else if(operators.contains(e)) {
 				if(operatorStack.empty() || (e.charAt(0) == '^' && operatorStack.peek() == '^')) {
 					operatorStack.push(e.charAt(0));
@@ -29,11 +29,11 @@ public class ShuntingYard {
 					operatorStack.push(e.charAt(0));
 				}
 			}
-//			Checks if the token is a left parenthesis
+			// Checks if the token is a left parenthesis
 			else if(e.charAt(0) == '(') {
 				operatorStack.push(e.charAt(0));
 			}
-//			Checks if the token is a right parenthesis
+			// Checks if the token is a right parenthesis
 			else if(e.charAt(0) == ')') {
 				while(!(operatorStack.peek() == '(')) {
 					output += operatorStack.pop() + " ";
