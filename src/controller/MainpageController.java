@@ -15,11 +15,13 @@ public class MainpageController {
 	
 	@FXML
 	private void convert() {
+		// Changes the text of the postfixL with the result of the expression
 		postfixL.setText(ShuntingYard.evaluateExpression(infixTF.getText()));
 	}
 	
 	@FXML
 	private void showHelp() {
+		// Creates a new alert dialog and shows it to the user
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Help");
 		alert.setHeaderText("Help");
